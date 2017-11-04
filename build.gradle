@@ -17,6 +17,8 @@ apply plugin: 'org.springframework.boot'
 group = 'com.zar'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 
 repositories {
 	mavenCentral()
@@ -27,3 +29,6 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+
+task wrapper(type: Wrapper) {  gradleVersion = '2.9' }
+
