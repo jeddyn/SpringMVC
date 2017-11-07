@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
     private Twitter twitter;
 
     @RequestMapping("/")
-    public String home(){
+    public String home() {
         return "searchPage";
     }
 
@@ -34,19 +34,34 @@ import java.util.stream.Collectors;
         List<Tweet> tweets = searchResults.getTweets();
         model.addAttribute("tweets", tweets);
         model.addAttribute("search", search);
-    return "resultPage";}
+        return "resultPage";
+    }
 
-    @RequestMapping(value = "/postSearch", method= RequestMethod.POST)
-    public String postSearch(HttpServletRequest request, RedirectAttributes redirectAttributes){
+    @RequestMapping(value = "/postSearch", method = RequestMethod.POST)
+    public String postSearch(HttpServletRequest request, RedirectAttributes redirectAttributes) {
         String search = request.getParameter("search");
-        if(search.toLowerCase().contains("śmieci"))
-        {
-           redirectAttributes.addFlashAttribute("error", "Spróbuj wpisac coś innego!");
-           return "redirect:/";
+        if (search.toLowerCase().contains("śmieci")) {
+            redirectAttributes.addFlashAttribute("error", "Spróbuj wpisac coś innego!");
+            return "redirect:/";
         }
         redirectAttributes.addAttribute("search", search);
         return "redirect:result";
 
     }
+
+    @Controller
+    public class ProfileController {
+        @RequestMapping("/profile")
+        public String displayProfile(ProfileForm profileForm) {
+            return "profile/profilePage";
+        }
+
+        @RequestMapping(value = "/profile", method = RequestMethod.POST)
+        public String saveProfile(ProfileForm profileForm){
+            System.out.println("pomyślnie zapisany profil " + profileForm);
+            return "redirect:/profile";
+        }
+    }
+
 }
 
