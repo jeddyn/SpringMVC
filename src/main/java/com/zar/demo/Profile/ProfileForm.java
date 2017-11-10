@@ -1,13 +1,23 @@
-package com.zar.demo.zar.demo.controller;
+package com.zar.demo.Profile;
 
 //DTO POJO
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 public class ProfileForm {
+    @Size(min=2)
     private String twitterHandle;
+    @Email
+    @NotNull
     private String email;
+    @NotNull
     private LocalDate birthDate;
+    @NotEmpty
     private List<String> tastes = new ArrayList<>();
 
     public String getTwitterHandle() {
