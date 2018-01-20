@@ -1,6 +1,6 @@
 package com.zar.demo.Profile;
 
-import com.zar.demo.USLocalDateFormatter.USLocalDateFormatter;
+import com.zar.demo.Date.USLocalDateFormatter;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;

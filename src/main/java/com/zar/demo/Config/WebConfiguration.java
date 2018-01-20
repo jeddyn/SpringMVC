@@ -1,6 +1,6 @@
 package com.zar.demo.Config;
 
-import com.zar.demo.USLocalDateFormatter.USLocalDateFormatter;
+import com.zar.demo.Date.USLocalDateFormatter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;

@@ -14,15 +14,14 @@
                 <label for="twitterHandle" th:text="#{twitter.handle}">Identyfikator Twitter </label>
                 <div th:errors="*{twitterHandle}" class="red-text">Błąd</div>
             </div>
-            <div class="input-field col s6"><input th:field="${profileForm.email}" id="email" type="text" required="required" th:errorclass="invalid"/> <label for="email" th:text="#{email}">Adres
-                e-mail</label>
+            <div class="input-field col s6"><input th:field="${profileForm.email}" id="email" type="text" required="required" th:errorclass="invalid"/>
+                <label for="email" th:text="#{email}">Adres e-mail</label>
                 <div th:errors="*{email}" class="red-text">Błąd</div>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s6"><input th:field="${profileForm.birthDate}" id="birthDate" type="text" required="required" th:errorclass="invalid"/> <label for="birthDate"
-                                                                                    th:text="#{birthdate}"
-                                                                                    th:placeholder="${dateFormat}">Data urodzenia</label>
+            <div class="input-field col s6"><input th:field="${profileForm.birthDate}" id="birthDate" type="text" required="required" th:errorclass="invalid"/>
+                <label for="birthDate" th:text="#{birthdate}" th:placeholder="${dateFormat}">Data urodzenia</label>
                 <div th:errors="*{birthDate}" class="red-text">Błąd</div>
             </div>
         </div>
@@ -34,7 +33,8 @@
             <div class="row" th:each="row,rowStat : *{tastes}">
                 <div class="col s6">
                     <input type="text" th:field="*{tastes[__${rowStat.index}__]}" th:placeholder="#{taste.placeholder}"/>
-                </div>    <div class="col s6">
+                </div>
+                <div class="col s6">
                 <button class="btn red" type="submit" name="removeTaste" th:value="${rowStat.index}" th:text="#{remove}">Usuń<i class="mdi-action-delete right waves-effect"></i>
                 </button>
             </div>
@@ -48,17 +48,17 @@
 </div>
 
 <script layout:fragment="script">
-    $('button').bind('click', function(e){
-        if (e.currentTarget.name === 'save'){
+    $('button').bind('click', function(e) {
+        if (e.currentTarget.name === 'save') {
             $(e.currentTarget.form).removeAttr('novalidate');
+        } else {
+            $(e.currentTarget.form).attr('novalidate', 'novalidate');
         }
-        else{
-        $(e.currentTarget.form).attr('novalidate', 'novalidate');
-    }
+    });
+</script>
+
 
 }
-}; </script>
-
 </body>
 </html>
 
